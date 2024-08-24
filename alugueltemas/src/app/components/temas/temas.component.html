@@ -1,0 +1,19 @@
+<div *ngIf = "temas">
+    <ul>
+        <li *ngFor = "let temas of temas">
+            <p>
+                {{temas.name}}
+            </p>
+            <p>
+                {{temas.color}}
+            </p>
+            <p>
+                {{temas.price}}
+            </p>
+            <p>
+                {{temas.itens}}
+            </p>
+        </li>
+    </ul>
+
+</div>
