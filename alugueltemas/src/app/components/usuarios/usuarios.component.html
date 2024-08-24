@@ -1,0 +1,10 @@
+<div *ngIf = "user && user.length > 0">
+   <ul>
+    <li *ngFor = "let user of user">
+        <h2> 
+            Nome:{{user.name}}
+        </h2>
+        <p> Email{{user.email}} </p>
+    </li>
+   </ul>
+</div>
