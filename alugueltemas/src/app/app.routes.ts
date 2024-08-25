@@ -5,11 +5,13 @@ import { TemasComponent } from './components/temas/temas.component';
 import { AlugueisComponent } from './components/alugueis/alugueis.component';
 import { EnderecosComponent } from './components/enderecos/enderecos.component';
 import { ItensComponent } from './components/itens/itens.component';
+import { TemasMaisAlugadosComponent } from './components/temas-mais-alugados/temas-mais-alugados.component';
 
 
 export const routes: Routes = [
     {path:'user', component:UsuariosComponent},
     {path:'temas', component:TemasComponent},
+    {path:'TemasMaisAlugados', component:TemasMaisAlugadosComponent},
     {path:'alugueis', component:AlugueisComponent},
     {path:'enderecos', component:EnderecosComponent},
     {path:'itens', component:ItensComponent},
