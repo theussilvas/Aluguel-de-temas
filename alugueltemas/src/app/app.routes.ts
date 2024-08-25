@@ -6,10 +6,12 @@ import { AlugueisComponent } from './components/alugueis/alugueis.component';
 import { EnderecosComponent } from './components/enderecos/enderecos.component';
 import { ItensComponent } from './components/itens/itens.component';
 import { TemasMaisAlugadosComponent } from './components/temas-mais-alugados/temas-mais-alugados.component';
+import { UsuariosMaisAlugueisComponent } from './components/usuarios-mais-alugam/usuarios-mais-alugam.component';
 
 
 export const routes: Routes = [
     {path:'user', component:UsuariosComponent},
+    {path:'usuarios-mais-alugam', component:UsuariosMaisAlugueisComponent},
     {path:'temas', component:TemasComponent},
     {path:'TemasMaisAlugados', component:TemasMaisAlugadosComponent},
     {path:'alugueis', component:AlugueisComponent},

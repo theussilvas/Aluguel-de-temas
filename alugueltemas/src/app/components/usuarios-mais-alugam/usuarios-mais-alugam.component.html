@@ -1,0 +1,14 @@
+<div *ngIf="usuariosMaisAlugueis.length > 0; else noData">
+    <h2>Usuários que Mais Alugaram Temas</h2>
+    <ul>
+        <li *ngFor="let item of usuariosMaisAlugueis">
+            <h3>{{ item.usuario.name }}</h3>
+            <p>Email: {{ item.usuario.email }}</p>
+            <p>Total de Aluguéis: {{ item.totalAlugueis }}</p>
+        </li>
+    </ul>
+</div>
+
+<ng-template #noData>
+    <p>Não há dados de aluguéis no momento.</p>
+</ng-template>
