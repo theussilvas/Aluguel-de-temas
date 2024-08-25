@@ -1,0 +1,14 @@
+<div *ngIf = "alugueis" >
+    <h1>Alugueis</h1>
+    <ul>
+        <li *ngFor= "let aluguel of alugueis">
+            <p>{{aluguel.id}}</p>
+            <p>{{aluguel.date}}</p>
+            <p>{{aluguel.start_hours}}</p>
+            <p>{{aluguel.end_hours}}</p>
+            <p>{{aluguel.client}}</p>
+            <p>{{aluguel.theme}}</p>
+            <p>{{aluguel.adress}}</p>
+        </li>
+    </ul>
+</div>

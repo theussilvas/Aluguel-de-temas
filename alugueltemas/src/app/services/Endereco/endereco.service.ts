@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EnderecoService {
 
-  private apiUrl = "http://http://3.128.249.166:8000/api/Address/";
+  private apiUrl = "http://3.128.249.166:8000/api/Address/";
 
   endereco: IEndereco[] = [];
 

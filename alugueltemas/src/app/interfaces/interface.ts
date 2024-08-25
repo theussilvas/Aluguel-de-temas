@@ -17,7 +17,7 @@ export interface IEndereco{
 export interface Iitens{
     id:number,
     name:string,
-    descripton:string;
+    description:string;
 }
 
 export interface Itemas{

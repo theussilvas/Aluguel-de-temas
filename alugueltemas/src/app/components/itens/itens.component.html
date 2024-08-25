@@ -1,0 +1,17 @@
+<div *ngIf="itens">
+    <h1>Itens</h1>
+    <ul>
+        <li *ngFor= "let item of itens">
+            <p>
+                {{item.id}}
+            </p>
+            <p>
+                {{item.name}}
+            </p>
+            <p>
+                {{item.description}}
+            </p>
+        </li>
+    </ul>
+
+</div>

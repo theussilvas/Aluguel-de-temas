@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ItensService {
 
-  private apiUrl = "http://http://3.128.249.166:8000/api/itens/";
+  private apiUrl = "http://3.128.249.166:8000/api/itens/";
 
   itens: Iitens[] = [];
 

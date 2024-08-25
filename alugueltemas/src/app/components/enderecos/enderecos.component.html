@@ -1,0 +1,29 @@
+<div *ngIf = "enderecos" >
+    <h1>Endereços</h1>
+    <ul>
+        <li *ngFor= "let endereco of enderecos">
+            <p>
+                {{endereco.id}}
+            </p>
+            <p>
+                {{endereco.street}}
+            </p>
+            <p>
+                {{endereco.number}}
+            </p>
+            <p>
+                {{endereco.complement}}
+            </p>
+            <p>
+                {{endereco.district}}
+            </p>
+            <p>
+                {{endereco.city}}
+            </p>
+            <p>
+                {{endereco.state}}
+            </p>
+
+        <li>
+    </ul>
+</div>
