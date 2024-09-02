@@ -1,19 +1,70 @@
-<div *ngIf = "temas">
-    <ul>
-        <li *ngFor = "let temas of temas">
-            <p>
-                {{temas.name}}
-            </p>
-            <p>
-                {{temas.color}}
-            </p>
-            <p>
-                {{temas.price}}
-            </p>
-            <p>
-                {{temas.itens}}
-            </p>
-        </li>
-    </ul>
+<mat-card-title>Gerenciar Temas</mat-card-title>
+<mat-card>
+    <mat-card-content>
+        <form #temaForm="ngForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>Nome do Tema</mat-label>
+                <input matInput placeholder="Nome" [(ngModel)]="tema.name" name="name" required>
+            </mat-form-field>
 
-</div>
+            <mat-form-field>
+                <mat-label>Cor do Tema</mat-label>
+                <input matInput placeholder="Cor" [(ngModel)]="tema.color" name="color" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Preço do Tema</mat-label>
+                <input matInput placeholder="Preço" type="number" [(ngModel)]="tema.price" name="price" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Itens do Tema</mat-label>
+                <input matInput placeholder="Itens" [(ngModel)]="tema.itens" name="itens" required>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Salvar Tema</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-list>
+        <div *ngFor="let tema of temas">
+            <mat-list-item> Nome: {{ tema.name }}</mat-list-item>
+            <mat-list-item> Cor: {{ tema.color }}</mat-list-item>
+            <mat-list-item> Valor: R$ {{ tema.price }}</mat-list-item>
+            <mat-list-item> Itens: {{ tema.itens }}</mat-list-item>
+            <button mat-raised-button color="primary" (click)="selecionarTema(tema)">Editar</button>
+            <button mat-raised-button color="warn" (click)="deletarTema(tema.id)">Deletar</button>
+            <mat-divider></mat-divider>
+        </div>
+    </mat-list>
+</mat-card>
+
+<!-- Formulário para criação e edição de temas -->
+<form (ngSubmit)="onSubmit()" #temaForm="ngForm">
+    <div>
+        <label for="name">Nome do Tema</label>
+        <input type="text" id="name" [(ngModel)]="tema.name" name="name" required>
+    </div>
+    <div>
+        <label for="color">Cor</label>
+        <input type="text" id="color" [(ngModel)]="tema.color" name="color" required>
+    </div>
+    <div>
+        <label for="price">Preço</label>
+        <input type="number" id="price" [(ngModel)]="tema.price" name="price" required>
+    </div>
+    <button type="submit">Salvar Tema</button>
+</form>
+
+<!-- Listagem de temas -->
+<ul>
+    <li *ngFor="let tema of temas">
+        {{ tema.name }} - {{ tema.color }} - R$ {{ tema.price }}
+        <button (click)="selecionarTema(tema)">Editar</button>
+        <button (click)="deletarTema(tema.id)">Deletar</button>
+    </li>
+</ul>
+
+

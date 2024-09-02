@@ -17,4 +17,15 @@ export class TemasService {
   obterTemas(): Observable<Itemas[]>{
     return this.http.get<Itemas[]>(this.apiUrl);
   }
+  criarTema(tema: Itemas): Observable<Itemas> {
+    return this.http.post<Itemas>(this.apiUrl, tema);
+  }
+
+  editarTema(tema: Itemas): Observable<Itemas> {
+    return this.http.put<Itemas>(`${this.apiUrl}${tema.id}/`, tema);
+  }
+
+  deletarTema(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}${id}/`);
+  }
 }
