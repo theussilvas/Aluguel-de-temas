@@ -5,7 +5,7 @@ import { TemasComponent } from './components/temas/temas.component';
 import { AlugueisComponent } from './components/alugueis/alugueis.component';
 import { EnderecosComponent } from './components/enderecos/enderecos.component';
 import { ItensComponent } from './components/itens/itens.component';
-import { TemasPeriodoComponent } from './components/temas-periodo/temas-periodo.component';
+import { UsuariosmaiortemasComponent } from './components/usuariosmaiortemas/usuariosmaiortemas.component';
 
 
 export const routes: Routes = [
@@ -15,7 +15,7 @@ export const routes: Routes = [
     {path:'enderecos', component:EnderecosComponent},
     {path:'itens', component:ItensComponent},
     {path: '', redirectTo: '/temas', pathMatch: 'full'},
-    {path: 'clientes', component: TemasPeriodoComponent},
+    {path: 'clientes', component:UsuariosmaiortemasComponent},
 ];
 
 @NgModule({

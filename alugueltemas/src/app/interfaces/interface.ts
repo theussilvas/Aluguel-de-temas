@@ -37,3 +37,8 @@ export interface IAluguel{
     theme:number,
     adress:number;
 }
+
+export interface IClientesComAlugueis{
+    nome:string;
+    quantidadeAlugueis:number;
+}
