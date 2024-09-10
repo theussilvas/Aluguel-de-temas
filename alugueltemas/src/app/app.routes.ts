@@ -5,6 +5,7 @@ import { TemasComponent } from './components/temas/temas.component';
 import { AlugueisComponent } from './components/alugueis/alugueis.component';
 import { EnderecosComponent } from './components/enderecos/enderecos.component';
 import { ItensComponent } from './components/itens/itens.component';
+import { ReceitaalugueisComponent } from './components/receitaalugueis/receitaalugueis.component';
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
     {path:'alugueis', component:AlugueisComponent},
     {path:'enderecos', component:EnderecosComponent},
     {path:'itens', component:ItensComponent},
+    {path: 'receita', component:ReceitaalugueisComponent},
     {path: '', redirectTo: '/temas', pathMatch: 'full'} 
 ];
 
