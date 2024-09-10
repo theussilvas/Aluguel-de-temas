@@ -1,21 +1,18 @@
-<!-- <header>
-    <ul>
-        <a routerLink="user">
-            <li>
-                Temas
-            </li>
-        </a>
-        <a href="">
-            <li>
-                Alugueis
-            </li>
-        </a>
-       <a href="">
-         <li>
-            Usuário
-        </li>
-       </a>
-    </ul>
-</header>
+<!-- Menu Principal -->
+<button mat-button [matMenuTriggerFor]="mainMenu">Menu</button>
+<mat-menu #mainMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="temasMenu">Temas</button>
+    <button mat-menu-item [matMenuTriggerFor]="itensMenu">Itens</button>
+</mat-menu>
 
-<router-outlet></router-outlet> -->
+<!-- Menu Temas -->
+<mat-menu #temasMenu="matMenu">
+    <button mat-menu-item routerLink="/temas">Ver Temas</button>
+    <button mat-menu-item routerLink="/criar-tema">Criar Tema</button>
+</mat-menu>
+
+<!-- Menu Itens -->
+<mat-menu #itensMenu="matMenu">
+    <button mat-menu-item routerLink="/itens">Ver Itens</button>
+    <button mat-menu-item routerLink="/criar-item">Criar Item</button>
+</mat-menu>

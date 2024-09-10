@@ -1,17 +1,38 @@
-<div *ngIf="itens">
-    <h1>Itens</h1>
-    <ul>
-        <li *ngFor= "let item of itens">
-            <p>
-                {{item.id}}
-            </p>
-            <p>
-                {{item.name}}
-            </p>
-            <p>
-                {{item.description}}
-            </p>
-        </li>
-    </ul>
+<mat-card>
+    <mat-card-title>{{ isEditing ? 'Editar Item' : 'Criar Novo Item' }}</mat-card-title>
+    <mat-card-content>
+        <form (ngSubmit)="isEditing ? editarItem() : criarItem()">
+            <mat-form-field>
+                <mat-label>Nome do Item</mat-label>
+                <input matInput placeholder="Nome" [(ngModel)]="item.name" name="name" required>
+            </mat-form-field>
 
-</div>
+            <mat-form-field>
+                <mat-label>Descrição do Item</mat-label>
+                <input matInput placeholder="Descrição" [(ngModel)]="item.description" name="description" required>
+            </mat-form-field>
+
+            <div class="button-container">
+                <button mat-raised-button color="primary" type="submit">
+                    {{ isEditing ? 'Salvar Alterações' : 'Criar Item' }}
+                </button>
+                <button mat-raised-button color="warn" type="button" (click)="limparFormulario()"
+                    *ngIf="isEditing">Cancelar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-title>Lista de Itens</mat-card-title>
+    <mat-card-content>
+        <mat-list>
+            <mat-list *ngFor="let item of itens">
+                <div></div>
+                <mat-list-item>{{ item.name }} - {{ item.description }}</mat-list-item>
+                <button mat-raised-button color="primary" (click)="selecionarItem(item)">Editar</button>
+                <button mat-raised-button color="warn" (click)="deletarItem(item.id)">Deletar</button>
+            </mat-list>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

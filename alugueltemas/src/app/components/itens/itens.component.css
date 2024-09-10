@@ -1,0 +1,55 @@
+/* Estiliza o card que contém o formulário */
+mat-card {
+    margin: 16px;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estiliza o título do card */
+mat-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+/* Estiliza o formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estiliza os campos do formulário */
+mat-form-field {
+    margin-bottom: 16px;
+}
+
+/* Estiliza os botões dentro do formulário */
+button {
+    margin-top: 8px;
+}
+
+/* Estiliza o container dos botões */
+.button-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    justify-content: flex-start;
+}
+
+/* Estiliza a lista de itens */
+mat-list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+mat-list-item:last-child {
+    border-bottom: none;
+}
+
+/* Adiciona espaçamento ao redor do card da lista */
+mat-card+mat-card {
+    margin-top: 16px;
+}

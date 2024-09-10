@@ -11,6 +11,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { ItensService } from '../../services/Itens/itens.service';
+import { AppRoutingModule } from '../../app.routes';
 
 @Component({
   selector: 'app-temas',
@@ -24,7 +25,7 @@ import { ItensService } from '../../services/Itens/itens.service';
     CommonModule,
     MatSlideToggleModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   templateUrl: './temas.component.html',
   styleUrls: ['./temas.component.css']
