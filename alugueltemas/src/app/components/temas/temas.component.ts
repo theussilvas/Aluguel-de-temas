@@ -5,10 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { TemasService } from '../../services/Temas/temas.service';
-import { Itemas } from '../../interfaces/interface';
+import { Iitens, Itemas } from '../../interfaces/interface';
 import { CommonModule } from '@angular/common';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { ItensService } from '../../services/Itens/itens.service';
 
 @Component({
   selector: 'app-temas',
@@ -22,7 +24,7 @@ import { MatListModule } from '@angular/material/list';
     CommonModule,
     MatSlideToggleModule,
     MatListModule,
-    FormsModule
+    MatSelectModule
   ],
   templateUrl: './temas.component.html',
   styleUrls: ['./temas.component.css']
@@ -31,11 +33,19 @@ export class TemasComponent implements OnInit {
 
   tema: Itemas = { id: 0, name: '', color: '', price: 0, itens: [] };
   temas: Itemas[] = [];
+  itens: Iitens[] = [];
 
-  constructor(private temasService: TemasService) {}
+  constructor(private temasService: TemasService, private itensService: ItensService) {}
 
   ngOnInit(): void {
     this.listarTemas();
+    this.listarItens();
+  }
+
+  listarItens(): void {
+    this.itensService.obterItens().subscribe((itens: Iitens[]) => {
+      this.itens = itens;  // Armazena os itens no componente
+    });
   }
 
   listarTemas(): void {
@@ -80,5 +90,8 @@ export class TemasComponent implements OnInit {
 
   limparFormulario(): void {
     this.tema = { id: 0, name: '', color: '', price: 0, itens: [] };
+  }
+  obterItensTema(tema: Itemas): Iitens[] {
+    return this.itens.filter(item => tema.itens.includes(item.id)); // Associa os IDs dos itens aos detalhes dos itens
   }
 }
