@@ -12,11 +12,21 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  user:IUsuarios[] = [];
+  user: IUsuarios[] = [];
 
   obterUsers(): Observable<IUsuarios[]>{
     return this.http.get<IUsuarios[]>(this.apiUrl);
-
   }
-  
+
+  criarUser(user: IUsuarios): Observable<IUsuarios> {
+    return this.http.post<IUsuarios>(this.apiUrl, user);
+  }
+
+  editarUser(user: IUsuarios): Observable<IUsuarios> {
+    return this.http.put<IUsuarios>(`${this.apiUrl}${user.id}/`, user);
+  }
+
+  deletarUser(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}${id}/`);
+  }
 }
