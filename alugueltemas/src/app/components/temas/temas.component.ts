@@ -12,6 +12,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { ItensService } from '../../services/Itens/itens.service';
 import { AppRoutingModule } from '../../app.routes';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-temas',
@@ -35,8 +37,12 @@ export class TemasComponent implements OnInit {
   tema: Itemas = { id: 0, name: '', color: '', price: 0, itens: [] };
   temas: Itemas[] = [];
   itens: Iitens[] = [];
+  isEditing: boolean = false;
 
-  constructor(private temasService: TemasService, private itensService: ItensService) {}
+  @ViewChild('nameInput') nameInput!: ElementRef;
+
+
+  constructor(private temasService: TemasService, private itensService: ItensService, private snackBar: MatSnackBar ) {}
 
   ngOnInit(): void {
     this.listarTemas();
@@ -67,6 +73,7 @@ export class TemasComponent implements OnInit {
     this.temasService.criarTema(this.tema).subscribe(() => {
       this.listarTemas(); // Atualiza a lista de temas após a criação
       this.limparFormulario();
+      this.snackBar.open('Tema criado com sucesso!', 'Fechar', { duration: 3000 });
     });
   }
 
@@ -74,6 +81,8 @@ export class TemasComponent implements OnInit {
     this.temasService.editarTema(this.tema).subscribe(() => {
       this.listarTemas(); // Atualiza a lista de temas após a edição
       this.limparFormulario();
+      this.isEditing = false;
+      this.snackBar.open('Tema editado com sucesso!', 'Fechar', { duration: 3000 });
     });
   }
 
@@ -81,16 +90,20 @@ export class TemasComponent implements OnInit {
     if (confirm('Tem certeza que deseja deletar este tema?')) {
       this.temasService.deletarTema(id).subscribe(() => {
         this.listarTemas(); // Atualiza a lista de temas após a deleção
+        this.snackBar.open('Tema deletado com sucesso!', 'Fechar', { duration: 3000 });
       });
     }
   }
 
   selecionarTema(tema: Itemas): void {
     this.tema = { ...tema }; // Copia o tema selecionado para edição
+    this.isEditing = true;
+    setTimeout(() => this.nameInput.nativeElement.focus(), 0); // Aplica o foco
   }
 
   limparFormulario(): void {
     this.tema = { id: 0, name: '', color: '', price: 0, itens: [] };
+    this.isEditing = false;
   }
   obterItensTema(tema: Itemas): Iitens[] {
     return this.itens.filter(item => tema.itens.includes(item.id)); // Associa os IDs dos itens aos detalhes dos itens

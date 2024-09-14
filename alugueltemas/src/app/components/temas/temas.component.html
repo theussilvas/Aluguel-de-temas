@@ -1,10 +1,10 @@
-<mat-card-title>Gerenciar Temas</mat-card-title>
 <mat-card>
+    <mat-card-title>Gerenciar Temas</mat-card-title>
     <mat-card-content>
         <form #temaForm="ngForm" (ngSubmit)="onSubmit()">
             <mat-form-field>
                 <mat-label>Nome do Tema</mat-label>
-                <input matInput placeholder="Nome" [(ngModel)]="tema.name" name="name" required>
+                <input matInput placeholder="Nome" [(ngModel)]="tema.name" name="name" required #nameInput>
             </mat-form-field>
 
             <mat-form-field>
@@ -21,12 +21,14 @@
                 <mat-label>Itens do Tema</mat-label>
                 <mat-select [(ngModel)]="tema.itens" name="itens" multiple>
                     <mat-option *ngFor="let item of itens" [value]="item.id">
-                        {{ item.name }} - {{ item.description}}
+                        {{ item.name }} - {{ item.description }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
-            <button mat-raised-button color="primary" type="submit">Salvar Tema</button>
+            <button mat-raised-button color="primary" type="submit">
+                {{ isEditing ? 'Editar Tema' : 'Salvar Tema' }}
+            </button>
         </form>
     </mat-card-content>
 </mat-card>
@@ -34,18 +36,23 @@
 <mat-card>
     <mat-list>
         <div *ngFor="let tema of temas">
-            <mat-list-item> Nome: {{ tema.name }}</mat-list-item>
-            <mat-list-item> Cor: {{ tema.color }}</mat-list-item>
-            <mat-list-item> Valor: R$ {{ tema.price }}</mat-list-item>
-            <mat-list *ngFor="let item of obterItensTema(tema)">
-                <mat-label>Itens do Tema</mat-label>
-                <mat-list-item> Nome: {{ item.name }} - Descrição: {{ item.description }}</mat-list-item>
-            </mat-list>
-            <button mat-raised-button color="primary" (click)="selecionarTema(tema)">Editar</button>
-            <button mat-raised-button color="warn" (click)="deletarTema(tema.id)">Deletar</button>
+                <div class="item-details">
+                    <mat-list-item>Nome: {{ tema.name }}</mat-list-item>
+                    <mat-list-item>Cor: {{ tema.color }}</mat-list-item>
+                    <mat-list-item>Preço: {{ tema.price }}</mat-list-item>
+                    <mat-list>
+                        <div *ngFor="let item of obterItensTema(tema)">
+                            <mat-label>Itens do Tema</mat-label>
+                            <mat-list-item> Nome: {{ item.name }} </mat-list-item>
+                            <mat-list-item> Descrição: {{ item.description }} </mat-list-item>
+                        </div>
+                        <div class="action-buttons">
+                            <button mat-raised-button color="primary" (click)="selecionarTema(tema)">Editar</button>
+                            <button mat-raised-button color="warn" (click)="deletarTema(tema.id)">Deletar</button>
+                        </div>
+                    </mat-list>
+                </div>
             <mat-divider></mat-divider>
         </div>
     </mat-list>
 </mat-card>
-
-
