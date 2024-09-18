@@ -1,14 +1,27 @@
-<div *ngIf = "alugueis" >
-    <h1>Alugueis</h1>
-    <ul>
-        <li *ngFor= "let aluguel of alugueis">
-            <p>{{aluguel.id}}</p>
-            <p>{{aluguel.date}}</p>
-            <p>{{aluguel.start_hours}}</p>
-            <p>{{aluguel.end_hours}}</p>
-            <p>{{aluguel.client}}</p>
-            <p>{{aluguel.theme}}</p>
-            <p>{{aluguel.adress}}</p>
-        </li>
-    </ul>
+<h1>
+    Gerenciar alugueis
+</h1>
+
+<div class="addAluguel">
+    <button (click)="toggleFormAluguel()"> Novo aluguel </button>
 </div>
+
+<div *ngIf = "addAluguel">
+    <app-aluguelform  *ngIf="addAluguel" [aluguel]="aluguelSelecionado" (formClosed)="toggleFormAluguel()"></app-aluguelform>
+</div>
+
+
+ <div>
+    <h1>Histórico de alugueis</h1>
+    <div *ngIf = "alugueis" >
+        <h1>Alugueis</h1>
+        <ul>
+            <li *ngFor= "let aluguel of alugueis">
+               Cliente : {{aluguel.client}}, Tema: {{aluguel.theme}}, Data: {{aluguel.date}}
+               <button (click) = "carregarAluguel(aluguel)">Atualizar</button>
+               <button (click)="excluirAluguel(aluguel.id)">Excluir</button>
+            </li>
+        </ul>
+    </div>
+ </div>
+  
