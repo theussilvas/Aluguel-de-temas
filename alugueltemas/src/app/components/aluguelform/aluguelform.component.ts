@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TemasService } from '../../services/Temas/temas.service';
-import { IAluguel, IEndereco, Itemas, IUsuarios } from '../../interfaces/interface';
+import { IAluguel, IEndereco, IFormAluguel, Itemas, IUsuarios } from '../../interfaces/interface';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/User/user.service';
 import { EnderecoService } from '../../services/Endereco/endereco.service';
 import { FormsModule } from '@angular/forms';
+import { AluguelService } from '../../services/Aluguel/aluguel.service';
 
 @Component({
   selector: 'app-aluguelform',
@@ -14,23 +15,37 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './aluguelform.component.css'
 })
 export class AluguelformComponent implements OnInit {
-
-  constructor (private temasServices: TemasService, private clienteServices: UserService, private enderecoServices:EnderecoService){}
+  constructor (private aluguelService:AluguelService,private temasServices: TemasService, private clienteServices: UserService, private enderecoServices:EnderecoService){}
 
   temas:Itemas[] = [];
   clientes:IUsuarios[] = [];
   enderecos: IEndereco[] = [];
 
-  dataAluguel:Date | null = null;
-  horaAluguel:Date | null = null;
-  horaDevolucao:Date | null = null;
+ 
 
-  
+  novoAluguel:IFormAluguel ={
+    date: '',
+    end_hours:'',
+    start_hours:'',
+    client: 0,
+    theme: 0,
+    address: 0
+  }
+
   ngOnInit(){
       this.obter();
+  
   }
 
 
+  salvarAluguel(){
+    console.log(this.novoAluguel);
+    this.aluguelService.salvarAluguel(this.novoAluguel).subscribe(response =>{
+      console.log("Aluguel salvo", response)
+    }, error =>{
+      console.error("Erro ao salvar", error);
+    });
+  }
 
   obter(){
     this.temasServices.obterTemas().subscribe((data:Itemas[])=>{

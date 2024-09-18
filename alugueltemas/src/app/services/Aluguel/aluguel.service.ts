@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAluguel } from '../../interfaces/interface';
+import { IAluguel, IFormAluguel } from '../../interfaces/interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AluguelService {
 
-  private apiUrl = "http://3.128.249.166:8000/api/rents/";
+  private apiUrl = "https://3.128.249.166:8000/api/rents/";
 
   alugueis: IAluguel[] = [];
 
@@ -18,7 +18,7 @@ export class AluguelService {
     return this.http.get<IAluguel[]>(this.apiUrl);
   }
 
-  salvarAluguel(novoAluguel:IAluguel):Observable<IAluguel>{
+  salvarAluguel(novoAluguel:IFormAluguel):Observable<IAluguel>{
     return this.http.post<IAluguel>(this.apiUrl,novoAluguel)
   }
 }
