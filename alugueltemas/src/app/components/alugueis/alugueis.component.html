@@ -1,4 +1,18 @@
-<div *ngIf = "alugueis" >
+<h1>
+    Gerenciar alugueis
+</h1>
+
+<div class="addAluguel">
+    <button (click)="toggleFormAluguel()"> Novo aluguel </button>
+</div>
+
+<div *ngIf = "addAluguel">
+    <app-aluguelform></app-aluguelform>
+</div>
+
+
+
+<!-- <div *ngIf = "alugueis" >
     <h1>Alugueis</h1>
     <ul>
         <li *ngFor= "let aluguel of alugueis">
@@ -11,4 +25,4 @@
             <p>{{aluguel.adress}}</p>
         </li>
     </ul>
-</div>
+</div> -->
