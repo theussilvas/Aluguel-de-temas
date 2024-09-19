@@ -4,6 +4,12 @@
     <button mat-menu-item [matMenuTriggerFor]="temasMenu">Temas</button>
     <button mat-menu-item [matMenuTriggerFor]="itensMenu">Itens</button>
     <button mat-menu-item [matMenuTriggerFor]="usuariosMenu">Usuários</button>
+    <button mat-menu-item routerLink="/alugueis">Alugueis</button>
+    <button mat-menu-item routerLink="/grafico">Receita Grafico</button>
+    <button mat-menu-item routerLink="/usuarios-mais-alugam">Quem aluga Mais?</button>
+    <button mat-menu-item routerLink="/temas-cadastrados">Quantos Temas?</button>
+    <button mat-menu-item routerLink="/TemasMaisAlugados">Temas mais Alugados</button>
+    <button ></button>
 </mat-menu>
 
 <!-- Menu Temas -->
@@ -19,4 +25,14 @@
 <!-- Menu Usuários -->
  <mat-menu #usuariosMenu="matMenu">
     <button mat-menu-item routerLink="/user">Gerenciar Usuaários</button>
+</mat-menu>
+
+<!--Menu Alugueis-->
+<mat-menu #alugueisMenu="matMenu">
+    <button mat-menu-item routerLink="/alugueis">Gerenciar Alugueis</button>
+</mat-menu>
+
+<!--Menu Grafico-->
+<mat-menu #graficoMenu="matMenu">
+    <button mat-menu-item routerLink="/grafico">Receita Grafico</button>
 </mat-menu>
