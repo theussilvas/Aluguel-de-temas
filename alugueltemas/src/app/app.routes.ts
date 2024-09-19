@@ -9,6 +9,9 @@ import { TemasMaisAlugadosComponent } from './components/temas-mais-alugados/tem
 import { UsuariosMaisAlugueisComponent } from './components/usuarios-mais-alugam/usuarios-mais-alugam.component';
 import { QuantidadeTemasComponent } from './components/temas-cadastrados/temas-cadastrados.component';
 import { GraficoReceitaComponent } from './components/grafico-receita/grafico-receita.component';
+import { AluguelformComponent } from './components/aluguelform/aluguelform.component';
+import { EnderecoformComponent } from './components/enderecoform/enderecoform.component';
+
 
 
 export const routes: Routes = [
@@ -21,7 +24,8 @@ export const routes: Routes = [
     {path:'alugueis', component:AlugueisComponent},
     {path:'enderecos', component:EnderecosComponent},
     {path:'itens', component:ItensComponent},
-    {path: '', redirectTo: '/temas', pathMatch: 'full'} 
+    {path:'form',component:AluguelformComponent},
+    {path: '', redirectTo: '/form', pathMatch: 'full'} 
 ];
 
 @NgModule({

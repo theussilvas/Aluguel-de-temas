@@ -1,0 +1,32 @@
+<form #aluguelForm = "ngForm" (ngSubmit) ="isUpdate ? atualizarAluguel(): salvarAluguel()">
+
+    <p>Cliente</p>
+    <select [(ngModel)] = "novoAluguel.client" name="cliente" id="">
+        <option value="" disabled selected>Selecione um usuário</option>
+        <option *ngFor = "let cliente of clientes" [value]="cliente.id">{{cliente.name}}</option>
+    </select>
+
+    <p>Tema</p>
+    <select  [(ngModel)] ="novoAluguel.theme"  name="theme" id="">
+        <option value="" disabled selected>Selecione um tema</option>
+        <option *ngFor = "let tema of temas" [value]="tema.id">{{tema.name}}</option>
+    </select>
+
+    <label for="data">Data do Aluguel:</label>
+    <input [(ngModel)]="novoAluguel.date"  name="dataAluguel" required type="date">
+
+    <label for="horaI"> Hora de inicio</label>
+    <input [(ngModel)]="novoAluguel.start_hours"   type="time" required name="horaI">
+
+    <label for="horaD"> Hora devolução </label>
+    <input [(ngModel)] ="novoAluguel.end_hours" required name="horaD" type="time">
+
+    <p>Endereço</p>
+    <select [(ngModel)]= "novoAluguel.address" name="endereco" id="">
+        <option value="" disabled selected>Selecione um endereço </option>
+        <option  *ngFor="let endereco of enderecos" [value]="endereco.id">{{endereco.city}}</option>
+    </select>
+
+
+    <button type="submit"> {{isUpdate ? 'Atualizar': 'Alugar'}}</button>
+</form>

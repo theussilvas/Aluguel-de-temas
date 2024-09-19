@@ -37,3 +37,13 @@ export interface IAluguel{
     theme:number,
     adress:number;
 }
+
+export interface IFormAluguel{
+    date: string,
+    end_hours: string,
+    start_hours:string,
+    client:number,
+    theme: number,
+    address:number,
+    id:number,
+  }

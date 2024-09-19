@@ -1,0 +1,9 @@
+<select [(ngModel)] = "enderecoSelecionado"  name="" id="">
+    <option value="" disabled selected>Selecione um endereço </option>
+    <option  *ngFor="let endereco of enderecos" value="[endereco.id]">{{endereco.city}}</option>
+</select>
+
+<div *ngIf="enderecoSelecionado">
+    <label for="rua">Rua</label>
+    <input id="rua" type="text" value="[enderecoSelecionado.street]">
+</div>
