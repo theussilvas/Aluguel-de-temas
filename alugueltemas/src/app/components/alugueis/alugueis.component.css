@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
 
 body{
     height:100vh;
@@ -14,12 +18,33 @@ body{
     display: flex;
     justify-content:center;
     align-items: center;
+    margin-left: 20px;
+}
+
+.title{
+    font-family: "Open Sans", sans-serif;
+    font-size:2rem
 }
 
 .temas-periodo{
+    padding-top: 10px;
     display: flex;
     justify-content: space-between;
-    background-color:yellow;
+    align-items: center;
+}
+
+.addAluguel button{
+    height: 50px;
+    width: 20%;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    
+}
+
+.addAluguel button:hover{
+    background-color: rgb(1, 168, 1);
 }
 
 .crud-title{
@@ -31,27 +56,68 @@ body{
 .aluguel-form{
     display: flex;
     justify-content:first space-between;
-    background-color: yellow;
 }
 
 .historico{
     box-shadow: 1px 1px 6px #0000001c;
 }
 
-.historico-title{
-    display:flex;
-    justify-content:center;
-    align-items: center;
+.historico {
+    padding: 20px;
 }
 
-.historico-alugueis{
-    box-shadow: 1px 1px 6px #0000001c;
+.historico-title p {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.historico-alugueis ul{
+.card-container {
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
-.historico li{
-    list-style: none;
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(20% - 20px); /* 20% width with margin */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+.historico button{
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    background-color: rgb(218, 218, 17);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.historico button + button{
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    background-color: rgb(238, 12, 12);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.historico button:hover {
+    background-color: rgb(231, 231, 14);
+}
+
+.historico button + button:hover{
+    background-color: red;
+    
+
 }

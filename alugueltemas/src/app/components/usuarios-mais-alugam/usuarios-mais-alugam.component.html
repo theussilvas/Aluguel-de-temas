@@ -1,14 +1,17 @@
-<div *ngIf="usuariosMaisAlugueis.length > 0; else noData">
-    <h2>Usuários que Mais Alugaram Temas</h2>
-    <ul>
-        <li *ngFor="let item of usuariosMaisAlugueis">
-            <h3>{{ item.usuario.name }}</h3>
-            <p>Email: {{ item.usuario.email }}</p>
-            <p>Total de Aluguéis: {{ item.totalAlugueis }}</p>
-        </li>
-    </ul>
+<div class="container">
+    <div *ngIf="usuariosMaisAlugueis.length > 0; else noData">
+        <div class="container-text">
+            <p>Usuários que Mais Alugaram Temas</p>
+        </div>
+           <div class="card-container">
+            <div class="card" *ngFor="let item of usuariosMaisAlugueis | slice:0:3">
+                <h3>{{ item.usuario.name }}</h3>
+                <p>{{ item.totalAlugueis }} Aluguéis</p>
+            </div>
+           </div>
+    </div>
+    
+    <ng-template #noData>
+        <p>Não há dados de aluguéis no momento.</p>
+    </ng-template>
 </div>
-
-<ng-template #noData>
-    <p>Não há dados de aluguéis no momento.</p>
-</ng-template>
