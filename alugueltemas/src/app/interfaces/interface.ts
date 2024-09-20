@@ -47,3 +47,8 @@ export interface IFormAluguel{
     address:number,
     id:number,
   }
+
+export interface IClientesComAlugueis{
+    nome:string;
+    quantidadeAlugueis:number;
+}

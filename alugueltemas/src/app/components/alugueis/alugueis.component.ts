@@ -4,12 +4,15 @@ import { IAluguel } from '../../interfaces/interface';
 import { CommonModule } from '@angular/common';
 import { AluguelformComponent } from '../aluguelform/aluguelform.component';
 import { FormsModule } from '@angular/forms';
+import { ReceitaalugueisComponent } from "../receitaalugueis/receitaalugueis.component";
+import { TemasperiodoComponent } from "../temasperiodo/temasperiodo.component";
+import { UsuariosMaisAlugueisComponent } from "../usuarios-mais-alugam/usuarios-mais-alugam.component";
 
 
 @Component({
   selector: 'app-alugueis',
   standalone: true,
-  imports: [CommonModule,AluguelformComponent, FormsModule,],
+  imports: [CommonModule, AluguelformComponent, FormsModule, ReceitaalugueisComponent, TemasperiodoComponent, UsuariosMaisAlugueisComponent],
   templateUrl: './alugueis.component.html',
   styleUrl: './alugueis.component.css'
 })

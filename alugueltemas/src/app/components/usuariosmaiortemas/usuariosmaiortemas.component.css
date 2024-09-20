@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: blue;
+    
+}
+
+ul li{
+    list-style: none;
+}
+
+ul{
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
