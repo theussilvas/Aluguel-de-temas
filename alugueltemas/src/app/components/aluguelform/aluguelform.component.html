@@ -50,15 +50,12 @@
                         <option value="" disabled selected>Selecione um endereço </option>
                         <option  *ngFor="let endereco of enderecos" [value]="endereco.id">{{endereco.city}}</option>
                     </select>
-
                 </div>
             </div>
-            
             <div class="aluguel-button">
-                <button type="submit"> {{isUpdate ? 'Atualizar': 'Alugar'}}</button>
+                <button class="btn btn-primary" type="submit"> {{isUpdate ? 'Atualizar': 'Alugar'}}</button>
             </div>
         </form>
-        
-
+    
     </div>
 </div>

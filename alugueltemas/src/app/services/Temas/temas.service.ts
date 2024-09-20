@@ -30,11 +30,11 @@ export class TemasService {
   }
 
 
-  temasPeriodo(temas:Itemas[],alugueis:IAluguel[], mes:number, ano:number){
+  temasPeriodo(temas:Itemas[],alugueis:IAluguel[], mes:number, ano:number, dia:number){
     
     const alugueisFiltrados = alugueis.filter(aluguel => {
       const dataAluguel = new Date(aluguel.date);
-      return dataAluguel.getMonth() === mes - 1 && dataAluguel.getFullYear() === ano;
+      return dataAluguel.getMonth() === mes - 1 && dataAluguel.getFullYear() === ano && dataAluguel.getDay() === dia;
     });
 
     const contagemPorTema = alugueisFiltrados.reduce((acc, aluguel) => {
@@ -45,7 +45,10 @@ export class TemasService {
       return acc;
     }, {} as Record<string, number>);
   
-    return contagemPorTema;
+    return Object.entries(contagemPorTema).map(([nome, quantidade]) => ({
+      nome,
+      quantidade
+    }));
 
   }
 }

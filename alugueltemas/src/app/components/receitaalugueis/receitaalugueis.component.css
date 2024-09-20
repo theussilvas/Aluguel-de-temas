@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    border-radius: 10px;
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+.container-text{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-text p{
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+}
+
+.receita{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.receita p{
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.5rem;
+}

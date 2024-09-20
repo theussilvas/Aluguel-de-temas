@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height:100vh;
+    width: 100vh;
+    background-color:#fff;
+}
+
+.container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.temas-periodo{
+    display: flex;
+    justify-content: space-between;
+    background-color:yellow;
+}
+
+.crud-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aluguel-form{
+    display: flex;
+    justify-content:first space-between;
+    background-color: yellow;
+}
+
+.historico{
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+.historico-title{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.historico-alugueis{
+    box-shadow: 1px 1px 6px #0000001c;
+}
+
+.historico-alugueis ul{
+    display: flex;
+}
+
+.historico li{
+    list-style: none;
+}

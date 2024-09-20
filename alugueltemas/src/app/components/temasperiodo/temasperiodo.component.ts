@@ -4,12 +4,12 @@ import { TemasService } from '../../services/Temas/temas.service';
 import { AluguelService } from '../../services/Aluguel/aluguel.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CalendarModule } from 'primeng/calendar';
+
 
 @Component({
   selector: 'app-temasperiodo',
   standalone: true,
-  imports: [CommonModule, FormsModule, CalendarModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './temasperiodo.component.html',
   styleUrl: './temasperiodo.component.css'
 })
@@ -17,11 +17,11 @@ export class TemasperiodoComponent implements OnInit{
 
   temas:Itemas[] = [];
   alugueis:IAluguel[] = [];
+  diaSelecionado:number = 1;
   mesSelecionado:number = 1;
   anoSelecionado:number = new Date().getFullYear();
-  resultado: { [key: string]: number } = {};
+  resultado: { nome: string; quantidade: number }[] = [];
   dataSelecionada:string = '';
-  date2: Date | undefined;
 
   constructor(private temasServices:TemasService, private alugueisServices: AluguelService){}
   
@@ -50,10 +50,11 @@ export class TemasperiodoComponent implements OnInit{
     if (this.dataSelecionada){
       const data = new Date(this.dataSelecionada);
       this.mesSelecionado = data.getMonth() + 1; 
-      this.anoSelecionado = data.getFullYear(); 
+      this.anoSelecionado = data.getFullYear();
+      this.diaSelecionado = data.getDay(); 
       
     }
-    this.resultado = this.temasServices.temasPeriodo(this.temas,this.alugueis,this.mesSelecionado,this.anoSelecionado)
+    this.resultado = this.temasServices.temasPeriodo(this.temas,this.alugueis,this.mesSelecionado,this.anoSelecionado,this.diaSelecionado)
   }
 
 }

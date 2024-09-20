@@ -1,32 +1,27 @@
-
-
-<div class="flex-auto">
-  <label for="icondisplay" class="font-bold block mb-2"> Default Icon </label>
-  <p-calendar 
-      [(ngModel)]="date2" 
-      [iconDisplay]="'input'" 
-      [showIcon]="true" 
-      inputId="icondisplay" />
-</div>
-
-<div>
+<div class="container">
+<div class="form-container">
+  <div class="form-title">
+    <p>Quantidade de alugueis por período </p>
+  </div>
   <form (ngSubmit)="temasPeriodo()">
-    <label for="data">Selecione o mês e o ano:</label>
+    <label for="data">Selecione o período</label>
     <input id="data" type="date" [(ngModel)]="dataSelecionada" name="data" />
 
-    <button class="btn btn-primary" type="submit">Filtrar</button>
+    <div class="form-button">
+      <button class="btn btn-primary" type="submit">Filtrar</button>
+    </div>
   </form>
 </div>
   
-    <div *ngIf="resultado">
-      <h3>Aluguéis por Tema em {{ dataSelecionada | date:'MMMM yyyy' }}</h3>
+    <div *ngIf="resultado" class="aluguel-resultado">
+      <h3>Quantidade de aluguéis em:</h3>
+      <div class="data-selecionada">
+        <p> {{ dataSelecionada | date:'dd MMMM yyyy' }}</p>
+      </div>
       <ul>
-        <li *ngFor="let tema of resultado | keyvalue">
-          {{ tema.value }} aluguéis feitos no período
+        <li *ngFor="let tema of resultado">
+          {{ tema.nome }}: {{ tema.quantidade }} aluguéis feitos na data
         </li>
       </ul>
     </div>
-  
-
-
-  
+</div>

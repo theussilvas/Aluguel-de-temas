@@ -1,27 +1,43 @@
-<h1>
-    Gerenciar alugueis
-</h1>
-
-<div class="addAluguel">
-    <button (click)="toggleFormAluguel()"> Novo aluguel </button>
+<div class="container">
+   <p>Alugueis</p>
 </div>
 
-<div *ngIf = "addAluguel">
-    <app-aluguelform  *ngIf="addAluguel" [aluguel]="aluguelSelecionado" (formClosed)="toggleFormAluguel()"></app-aluguelform>
+<div class="temas-periodo">
+    <app-temasperiodo></app-temasperiodo>
+    <app-receitaalugueis></app-receitaalugueis>
 </div>
 
-
- <div>
-    <h1>Histórico de alugueis</h1>
-    <div *ngIf = "alugueis" >
-        <h1>Alugueis</h1>
-        <ul>
-            <li *ngFor= "let aluguel of alugueis">
-               Cliente : {{aluguel.client}}, Tema: {{aluguel.theme}}, Data: {{aluguel.date}}
-               <button (click) = "carregarAluguel(aluguel)">Atualizar</button>
-               <button (click)="excluirAluguel(aluguel.id)">Excluir</button>
-            </li>
-        </ul>
+    
+   
+    <div class="alugueis-crud">
+        <div class="crud-title">
+            <p>Gerenciar Alugueis</p>
+        </div>
+        <div class="addAluguel">
+            <button (click)="toggleFormAluguel()"> Novo aluguel </button>
+        </div>
+        <div *ngIf = "addAluguel">
+            <div class="aluguel-form">
+                <app-aluguelform  *ngIf="addAluguel" [aluguel]="aluguelSelecionado" (formClosed)="toggleFormAluguel()"></app-aluguelform>
+            </div>
+        </div> 
+        
+        
+           <div class="historico">
+            <div class="historico-title">
+                <h1>Histórico de alugueis</h1>
+            </div>
+            <div *ngIf = "alugueis"  class="historico-alugueis">
+                <ul>
+                    <li *ngFor= "let aluguel of alugueis">
+                       Cliente : {{aluguel.client}}, Tema: {{aluguel.theme}}, Data: {{aluguel.date}}
+                       <button (click) = "carregarAluguel(aluguel)">Atualizar</button>
+                       <button (click)="excluirAluguel(aluguel.id)">Excluir</button>
+                    </li>
+                </ul>
+            </div>
+         </div> 
+           
+    
     </div>
- </div>
-  
+    
