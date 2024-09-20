@@ -25,7 +25,7 @@ export const routes: Routes = [
     {path:'enderecos', component:EnderecosComponent},
     {path:'itens', component:ItensComponent},
     {path:'form',component:AluguelformComponent},
-    {path: '', redirectTo: '/form', pathMatch: 'full'} 
+    {path: '', redirectTo: '/alugueis', pathMatch: 'full'} 
 ];
 
 @NgModule({

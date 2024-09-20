@@ -1,27 +1,44 @@
-<h1>
-    Gerenciar alugueis
-</h1>
-
-<div class="addAluguel">
-    <button (click)="toggleFormAluguel()"> Novo aluguel </button>
+<div class="container">
+   <p class="title">Alugueis</p>
 </div>
 
-<div *ngIf = "addAluguel">
-    <app-aluguelform  *ngIf="addAluguel" [aluguel]="aluguelSelecionado" (formClosed)="toggleFormAluguel()"></app-aluguelform>
+<div class="temas-periodo">
+    <app-temasperiodo></app-temasperiodo>
+    <app-usuarios-mais-alugam> </app-usuarios-mais-alugam>
+    <app-receitaalugueis></app-receitaalugueis>
 </div>
-
-
- <div>
-    <h1>Histórico de alugueis</h1>
-    <div *ngIf = "alugueis" >
-        <h1>Alugueis</h1>
-        <ul>
-            <li *ngFor= "let aluguel of alugueis">
-               Cliente : {{aluguel.client}}, Tema: {{aluguel.theme}}, Data: {{aluguel.date}}
-               <button (click) = "carregarAluguel(aluguel)">Atualizar</button>
-               <button (click)="excluirAluguel(aluguel.id)">Excluir</button>
-            </li>
-        </ul>
+   
+<div class="alugueis-crud">
+    <div class="crud-title">
+        <p class="title">Gerenciar Alugueis</p>
     </div>
- </div>
-  
+    <div class="addAluguel">
+        <button (click)="toggleFormAluguel()"> Novo aluguel </button>
+    </div>
+    <div *ngIf = "addAluguel">
+        <div class="aluguel-form">
+            <app-aluguelform  *ngIf="addAluguel" [aluguel]="aluguelSelecionado" (formClosed)="toggleFormAluguel()"></app-aluguelform>
+        </div>
+</div> 
+        
+        
+        
+        
+<div class="historico">
+    <div class="historico-title">
+        <p class="title"> Histórico de alugueis</p>
+    </div>
+        <div *ngIf="alugueis" class="historico-alugueis">
+            <div class="card-container">
+                <div class="card" *ngFor="let aluguel of alugueis">
+                    <p>Cliente: {{aluguel.client}}</p>
+                    <p>Tema: {{aluguel.theme}}</p>
+                    <p>Data: {{aluguel.date | date:'dd MMMM yyyy'}}</p>
+                    <button (click)="carregarAluguel(aluguel)">Atualizar</button>
+                    <button (click)="excluirAluguel(aluguel.id)">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+    

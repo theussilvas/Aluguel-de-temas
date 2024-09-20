@@ -1,0 +1,27 @@
+<div class="container">
+<div class="form-container">
+  <div class="form-title">
+    <p>Quantidade de alugueis por período </p>
+  </div>
+  <form (ngSubmit)="temasPeriodo()">
+    <label for="data">Selecione o período</label>
+    <input id="data" type="date" [(ngModel)]="dataSelecionada" name="data" />
+
+    <div class="form-button">
+      <button class="btn btn-primary" type="submit">Filtrar</button>
+    </div>
+  </form>
+</div>
+  
+    <div *ngIf="resultado" class="aluguel-resultado">
+      <h3>Quantidade de aluguéis em:</h3>
+      <div class="data-selecionada">
+        <p> {{ dataSelecionada | date:'dd MMMM yyyy' }}</p>
+      </div>
+      <ul>
+        <li *ngFor="let tema of resultado">
+          {{ tema.nome }}: {{ tema.quantidade }} aluguéis feitos na data
+        </li>
+      </ul>
+    </div>
+</div>
